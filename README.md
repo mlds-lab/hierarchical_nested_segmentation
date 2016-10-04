@@ -16,3 +16,19 @@ Additionally, portions of this code is written in cython and must be compiled. T
 ```
 python setup.py build_ext --inplace
 ```
+
+## Usage
+
+The core of the code is implemented in the `hierarchical_nested_segmentation` class. This class implements the scikit-learn fit/predict interface.
+
+### Example Usage
+
+```
+from hierarchical_nested_segmentation import HierarchicalNestedSegmentation as hns
+import numpy as np
+
+X,Y = np.load("../data/test_data.npy")
+hns = HNS(n_x0_features=10,n_x1_features=10)
+hns.fit(X,Y)
+Y_pred = hns.predict(X)
+```
